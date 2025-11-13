@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Posts Management
     const postForm = document.getElementById('post-form');
     const postIdInput = document.getElementById('post-id');
     const postTitleInput = document.getElementById('post-title');
@@ -6,10 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
     const postsTableBody = document.getElementById('posts-table-body');
 
+    // Contact Management
+    const kontakForm = document.getElementById('kontak-form');
+    const kontakAlamatInput = document.getElementById('kontak-alamat-input');
+    const kontakTeleponInput = document.getElementById('kontak-telepon-input');
+    const kontakEmailInput = document.getElementById('kontak-email-input');
+
     let posts = [];
 
     // NOTE: In a real application, you would need a server-side component 
-    // to actually save, update, and delete data from the posts.json file.
+    // to actually save, update, and delete data from the JSON files.
     // This frontend-only example simulates these actions by manipulating data in memory.
     // The changes will be lost on page reload.
 
@@ -24,6 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Failed to fetch posts:', error);
             postsTableBody.innerHTML = '<tr><td colspan="3" class="p-3 text-center text-red-500">Gagal memuat data.</td></tr>';
+        }
+    }
+
+    async function fetchContactInfo() {
+        try {
+            const response = await fetch('../kontak.json');
+             if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const contact = await response.json();
+            kontakAlamatInput.value = contact.alamat;
+            kontakTeleponInput.value = contact.telepon;
+            kontakEmailInput.value = contact.email;
+        } catch (error) {
+             console.error('Failed to fetch contact info:', error);
         }
     }
 
@@ -93,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             posts.unshift(newPost); // Add to the beginning of the array
         }
         
-        alert('Data berhasil disimpan (simulasi). Perubahan akan hilang saat refresh.');
+        alert('Data postingan berhasil disimpan (simulasi). Perubahan akan hilang saat refresh.');
         renderTable();
         resetForm();
     });
@@ -125,6 +147,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    kontakForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const alamat = kontakAlamatInput.value.trim();
+        const telepon = kontakTeleponInput.value.trim();
+        const email = kontakEmailInput.value.trim();
+
+        if (!alamat || !telepon || !email) {
+            alert('Semua field kontak tidak boleh kosong!');
+            return;
+        }
+
+        alert('Info kontak berhasil disimpan (simulasi). Perubahan akan hilang saat refresh.');
+    });
+
     // Initial load
     fetchPosts();
+    fetchContactInfo();
 });

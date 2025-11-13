@@ -37,45 +37,58 @@ document.addEventListener('DOMContentLoaded', () => {
         mainView.classList.remove('hidden');
     }
 
-    if (postsContainer) {
-        fetch('posts.json')
-            .then(response => response.json())
-            .then(posts => {
-                allPosts = posts;
-                postsContainer.innerHTML = ''; // Clear existing content
-                if (posts.length === 0) {
-                     postsContainer.innerHTML = '<p>Tidak ada postingan saat ini.</p>';
-                     return;
-                }
-                posts.forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.className = 'bg-white rounded-lg shadow-md overflow-hidden';
-                    const shortContent = post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content;
-                    postElement.innerHTML = `
-                        <img src="${post.imageUrl}" alt="${post.title}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">${post.title}</h3>
-                            <p class="text-gray-600 text-sm mb-4">${post.date}</p>
-                            <p class="text-gray-700">${shortContent}</p>
-                            <a href="#" data-post-id="${post.id}" class="read-more-link text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
-                        </div>
-                    `;
-                    postsContainer.appendChild(postElement);
+    function loadPosts() {
+        if (postsContainer) {
+            fetch('posts.json')
+                .then(response => response.json())
+                .then(posts => {
+                    allPosts = posts;
+                    postsContainer.innerHTML = ''; // Clear existing content
+                    if (posts.length === 0) {
+                        postsContainer.innerHTML = '<p>Tidak ada postingan saat ini.</p>';
+                        return;
+                    }
+                    posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.className = 'bg-white rounded-lg shadow-md overflow-hidden';
+                        const shortContent = post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content;
+                        postElement.innerHTML = `
+                            <img src="${post.imageUrl}" alt="${post.title}" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">${post.title}</h3>
+                                <p class="text-gray-600 text-sm mb-4">${post.date}</p>
+                                <p class="text-gray-700">${shortContent}</p>
+                                <a href="#" data-post-id="${post.id}" class="read-more-link text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
+                            </div>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching posts:', error);
+                    postsContainer.innerHTML = '<p>Gagal memuat postingan.</p>';
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching posts:', error);
-                postsContainer.innerHTML = '<p>Gagal memuat postingan.</p>';
-            });
 
-        // Event listener for "Read More" links using event delegation
-        postsContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('read-more-link')) {
-                e.preventDefault();
-                const postId = e.target.getAttribute('data-post-id');
-                showPostDetail(postId);
-            }
-        });
+            // Event listener for "Read More" links using event delegation
+            postsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('read-more-link')) {
+                    e.preventDefault();
+                    const postId = e.target.getAttribute('data-post-id');
+                    showPostDetail(postId);
+                }
+            });
+        }
+    }
+
+    function loadContactInfo(){
+        fetch('kontak.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('kontak-alamat').textContent = data.alamat;
+                document.getElementById('kontak-telepon').textContent = data.telepon;
+                document.getElementById('kontak-email').textContent = data.email;
+            })
+            .catch(error => console.error('Error fetching contact info:', error));
     }
 
     // Event listener for the back button
@@ -94,4 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initial data load
+    loadPosts();
+    loadContactInfo();
 });
