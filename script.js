@@ -40,7 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadPosts() {
         if (postsContainer) {
             fetch('posts.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(posts => {
                     allPosts = posts;
                     postsContainer.innerHTML = ''; // Clear existing content
@@ -66,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => {
                     console.error('Error fetching posts:', error);
-                    postsContainer.innerHTML = '<p>Gagal memuat postingan.</p>';
+                    postsContainer.innerHTML = '<p class="text-red-500">Gagal memuat postingan. Silakan coba lagi nanti.</p>';
                 });
 
             // Event listener for "Read More" links using event delegation
@@ -82,13 +87,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadContactInfo(){
         fetch('kontak.json')
-            .then(response => response.json())
+            .then(response => {
+                 if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('kontak-alamat').textContent = data.alamat;
                 document.getElementById('kontak-telepon').textContent = data.telepon;
                 document.getElementById('kontak-email').textContent = data.email;
             })
-            .catch(error => console.error('Error fetching contact info:', error));
+            .catch(error => {
+                console.error('Error fetching contact info:', error);
+                document.getElementById('kontak-alamat').textContent = 'Gagal memuat info.';
+                document.getElementById('kontak-telepon').textContent = 'Gagal memuat info.';
+                document.getElementById('kontak-email').textContent = 'Gagal memuat info.';
+            });
     }
 
     // Event listener for the back button
