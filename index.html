@@ -10,7 +10,7 @@
 <body class="bg-gray-100 font-sans">
 
     <!-- Header -->
-    <header class="bg-white shadow">
+    <header class="bg-white shadow sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-gray-800">Sekolah Hebat</a>
 
@@ -26,72 +26,70 @@
             <!-- Desktop Menu Links -->
             <div class="hidden md:block">
                 <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Beranda</a>
-                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Profil</a>
-                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Berita</a>
-                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Kontak</a>
+                <a href="#profil" class="px-4 text-gray-600 hover:text-blue-500">Profil</a>
+                <a href="#posts" class="px-4 text-gray-600 hover:text-blue-500">Berita</a>
+                <a href="#kontak" class="px-4 text-gray-600 hover:text-blue-500">Kontak</a>
                 <a href="/admin/index.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Admin Login</a>
             </div>
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Beranda</a>
-            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Profil</a>
-            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Berita</a>
-            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Kontak</a>
+            <a href="#profil" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Profil</a>
+            <a href="#posts" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Berita</a>
+            <a href="#kontak" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Kontak</a>
             <a href="/admin/index.html" class="block w-full text-left py-2 px-4 bg-blue-500 text-white hover:bg-blue-600">Admin Login</a>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-8">
-        <!-- Hero Section -->
-        <section class="bg-blue-500 text-white rounded-lg p-8 md:p-12 text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Selamat Datang di Sekolah Hebat</h1>
-            <p class="text-md md:text-lg">Mencetak Generasi Unggul dan Berkarakter</p>
-        </section>
 
-        <!-- About Section -->
-        <section class="mb-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang Kami</h2>
-            <p class="text-gray-600">Sekolah Hebat adalah institusi pendidikan yang berdedikasi untuk memberikan pendidikan berkualitas tinggi dengan kurikulum yang inovatif dan lingkungan belajar yang mendukung. Kami percaya setiap siswa memiliki potensi unik yang perlu dikembangkan secara maksimal.</p>
-        </section>
+        <!-- Main view with list of posts -->
+        <div id="main-view">
+            <!-- Hero Section -->
+            <section class="bg-blue-500 text-white rounded-lg p-8 md:p-12 text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Selamat Datang di Sekolah Hebat</h1>
+                <p class="text-md md:text-lg">Mencetak Generasi Unggul dan Berkarakter</p>
+            </section>
 
-        <!-- Posts Section -->
-        <section id="posts">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Berita & Pengumuman</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Post 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://picsum.photos/400/250" alt="Post Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Penerimaan Siswa Baru 2024/2025</h3>
-                        <p class="text-gray-600 text-sm mb-4">15 Juli 2024</p>
-                        <p class="text-gray-700">Pendaftaran siswa baru untuk tahun ajaran 2024/2025 telah dibuka. Segera daftarkan putra-putri Anda...</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
-                    </div>
+            <!-- About Section -->
+            <section id="profil" class="mb-8 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang Kami</h2>
+                <p class="text-gray-600">Sekolah Hebat adalah institusi pendidikan yang berdedikasi untuk memberikan pendidikan berkualitas tinggi dengan kurikulum yang inovatif dan lingkungan belajar yang mendukung. Kami percaya setiap siswa memiliki potensi unik yang perlu dikembangkan secara maksimal.</p>
+            </section>
+
+            <!-- Posts Section -->
+            <section id="posts" class="pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Berita & Pengumuman</h2>
+                <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Posts will be loaded here by JavaScript -->
                 </div>
-                <!-- Post 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://picsum.photos/400/251" alt="Post Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Juara 1 Lomba Cerdas Cermat Tingkat Nasional</h3>
-                        <p class="text-gray-600 text-sm mb-4">10 Juli 2024</p>
-                        <p class="text-gray-700">Selamat kepada tim cerdas cermat Sekolah Hebat yang berhasil meraih Juara 1 dalam kompetisi nasional...</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
-                    </div>
+            </section>
+
+             <!-- Kontak Section -->
+            <section id="kontak" class="mb-8 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Kontak Kami</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-700 mb-2"><strong>Alamat:</strong> Jl. Pendidikan No. 123, Kota Cerdas, Indonesia</p>
+                    <p class="text-gray-700 mb-2"><strong>Telepon:</strong> (021) 123-4567</p>
+                    <p class="text-gray-700"><strong>Email:</strong> info@sekolahhebat.com</p>
                 </div>
-                <!-- Post 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://picsum.photos/400/252" alt="Post Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Kegiatan Bakti Sosial di Desa Sukamaju</h3>
-                        <p class="text-gray-600 text-sm mb-4">5 Juli 2024</p>
-                        <p class="text-gray-700">Siswa-siswi kami mengadakan kegiatan bakti sosial untuk membantu masyarakat di Desa Sukamaju...</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
+
+        <!-- Post Detail View (hidden by default) -->
+        <div id="post-detail-view" class="hidden bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <button id="back-to-posts" class="mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali
+            </button>
+            <img id="post-detail-image" src="" alt="Post Image" class="w-full h-64 md:h-96 object-cover rounded-lg mb-4">
+            <h1 id="post-detail-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-2"></h1>
+            <p id="post-detail-date" class="text-gray-500 text-sm mb-4"></p>
+            <div id="post-detail-content" class="text-gray-700 leading-relaxed prose lg:prose-xl"></div>
+        </div>
+
     </main>
 
     <!-- Footer -->

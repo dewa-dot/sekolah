@@ -26,17 +26,18 @@
             
             <!-- Create New Post Section -->
             <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Buat Postingan Baru</h2>
-                <form>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Buat/Edit Postingan</h2>
+                <form id="post-form">
+                    <input type="hidden" id="post-id">
                     <div class="mb-4">
                         <label for="post-title" class="block text-gray-700 font-bold mb-2">Judul</label>
-                        <input type="text" id="post-title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" id="post-title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                     </div>
                     <div class="mb-4">
                         <label for="post-content" class="block text-gray-700 font-bold mb-2">Konten</label>
-                        <textarea id="post-content" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        <textarea id="post-content" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
                     </div>
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <button type="submit" id="submit-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Publikasikan
                     </button>
                 </form>
@@ -54,31 +55,8 @@
                                 <th class="p-3">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="border-b">
-                                <td class="p-3">Penerimaan Siswa Baru 2024/2025</td>
-                                <td class="p-3">15 Juli 2024</td>
-                                <td class="p-3">
-                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
-                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
-                                </td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Juara 1 Lomba Cerdas Cermat</td>
-                                <td class="p-3">10 Juli 2024</td>
-                                <td class="p-3">
-                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
-                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
-                                </td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Kegiatan Bakti Sosial</td>
-                                <td class="p-3">5 Juli 2024</td>
-                                <td class="p-3">
-                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
-                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
-                                </td>
-                            </tr>
+                        <tbody id="posts-table-body">
+                           <!-- Post rows will be inserted here by JavaScript -->
                         </tbody>
                     </table>
                 </div>

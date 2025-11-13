@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Penerimaan Siswa Baru 2024/2025",
+    "date": "15 Juli 2024",
+    "content": "Pendaftaran siswa baru untuk tahun ajaran 2024/2025 telah dibuka secara resmi. Kami mengundang para orang tua untuk segera mendaftarkan putra-putri terbaiknya untuk bergabung dengan keluarga besar Sekolah Hebat. Proses pendaftaran dapat dilakukan secara online melalui website kami atau datang langsung ke sekolah pada jam kerja. Jangan lewatkan kesempatan untuk mendapatkan pendidikan berkualitas dengan fasilitas lengkap dan tenaga pengajar profesional. Kuota terbatas, jadi pastikan Anda tidak ketinggalan informasi. Kunjungi halaman pendaftaran kami untuk detail lebih lanjut mengenai persyaratan dan jadwal penting.",
+    "imageUrl": "https://picsum.photos/400/250"
+  },
+  {
+    "id": 2,
+    "title": "Juara 1 Lomba Cerdas Cermat Tingkat Nasional",
+    "date": "10 Juli 2024",
+    "content": "Selamat kepada tim cerdas cermat Sekolah Hebat yang berhasil meraih Juara 1 dalam kompetisi nasional...",
+    "imageUrl": "https://picsum.photos/400/251"
+  },
+  {
+    "id": 3,
+    "title": "Kegiatan Bakti Sosial di Desa Sukamaju",
+    "date": "5 Juli 2024",
+    "content": "Siswa-siswi kami mengadakan kegiatan bakti sosial untuk membantu masyarakat di Desa Sukamaju...",
+    "imageUrl": "https://picsum.photos/400/252"
+  }
+]
