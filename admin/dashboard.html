@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sekolah Hebat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 bg-gray-800 text-white flex-col">
+            <div class="p-4 text-2xl font-bold border-b border-gray-700">Admin Panel</div>
+            <nav class="p-4">
+                <a href="#" class="block py-2 px-4 bg-gray-700 rounded mb-2">Dashboard</a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-700 rounded mb-2">Kelola Postingan</a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-700 rounded mb-2">Pengaturan</a>
+                <a href="index.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 md:p-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+            
+            <!-- Create New Post Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Buat Postingan Baru</h2>
+                <form>
+                    <div class="mb-4">
+                        <label for="post-title" class="block text-gray-700 font-bold mb-2">Judul</label>
+                        <input type="text" id="post-title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label for="post-content" class="block text-gray-700 font-bold mb-2">Konten</label>
+                        <textarea id="post-content" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Publikasikan
+                    </button>
+                </form>
+            </div>
+
+            <!-- Manage Posts Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Kelola Postingan</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="p-3">Judul</th>
+                                <th class="p-3">Tanggal</th>
+                                <th class="p-3">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-3">Penerimaan Siswa Baru 2024/2025</td>
+                                <td class="p-3">15 Juli 2024</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
+                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3">Juara 1 Lomba Cerdas Cermat</td>
+                                <td class="p-3">10 Juli 2024</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
+                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3">Kegiatan Bakti Sosial</td>
+                                <td class="p-3">5 Juli 2024</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-blue-500 hover:underline mr-2">Edit</a>
+                                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

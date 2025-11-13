@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Hebat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Sekolah Hebat</a>
+
+            <!-- Hamburger Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Menu Links -->
+            <div class="hidden md:block">
+                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Beranda</a>
+                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Profil</a>
+                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Berita</a>
+                <a href="#" class="px-4 text-gray-600 hover:text-blue-500">Kontak</a>
+                <a href="/admin/index.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Admin Login</a>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Beranda</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Profil</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Berita</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Kontak</a>
+            <a href="/admin/index.html" class="block w-full text-left py-2 px-4 bg-blue-500 text-white hover:bg-blue-600">Admin Login</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Hero Section -->
+        <section class="bg-blue-500 text-white rounded-lg p-8 md:p-12 text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Selamat Datang di Sekolah Hebat</h1>
+            <p class="text-md md:text-lg">Mencetak Generasi Unggul dan Berkarakter</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang Kami</h2>
+            <p class="text-gray-600">Sekolah Hebat adalah institusi pendidikan yang berdedikasi untuk memberikan pendidikan berkualitas tinggi dengan kurikulum yang inovatif dan lingkungan belajar yang mendukung. Kami percaya setiap siswa memiliki potensi unik yang perlu dikembangkan secara maksimal.</p>
+        </section>
+
+        <!-- Posts Section -->
+        <section id="posts">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Berita & Pengumuman</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Post 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/400/250" alt="Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Penerimaan Siswa Baru 2024/2025</h3>
+                        <p class="text-gray-600 text-sm mb-4">15 Juli 2024</p>
+                        <p class="text-gray-700">Pendaftaran siswa baru untuk tahun ajaran 2024/2025 telah dibuka. Segera daftarkan putra-putri Anda...</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/400/251" alt="Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Juara 1 Lomba Cerdas Cermat Tingkat Nasional</h3>
+                        <p class="text-gray-600 text-sm mb-4">10 Juli 2024</p>
+                        <p class="text-gray-700">Selamat kepada tim cerdas cermat Sekolah Hebat yang berhasil meraih Juara 1 dalam kompetisi nasional...</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <!-- Post 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/400/252" alt="Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kegiatan Bakti Sosial di Desa Sukamaju</h3>
+                        <p class="text-gray-600 text-sm mb-4">5 Juli 2024</p>
+                        <p class="text-gray-700">Siswa-siswi kami mengadakan kegiatan bakti sosial untuk membantu masyarakat di Desa Sukamaju...</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-4 inline-block">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-8">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2024 Sekolah Hebat. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
